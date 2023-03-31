@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  # API routing
-  scope module: 'api', defaults: {format: 'json'} do
-    namespace :v1 do
-      # provide the routes for the API here
+  get 'home', to: 'home#index', as: :home
+  get 'login', to: 'sessions#new', as: :login
+  get 'logout', to: 'sessions#destroy', as: :logout
+      
+  # provide the routes for the API here
+  resources :sessions
+  resources :employees
+  resources :stores, except: [:destroy]
+  resources :assignments
 
       
-      
-
-    end
-  end
+    
 
   # Routes for regular HTML views go here...
   
