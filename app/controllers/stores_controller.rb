@@ -18,7 +18,6 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      flash[:notice] = "Successfully added #{@store.name} store."
       redirect_to @store
     else
       render action: 'new'
