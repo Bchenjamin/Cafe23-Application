@@ -1,0 +1,38 @@
+<% if @active_stores.empty? %>
+  <h4>There are no stores in the system at this time.</h4>
+<% else %>
+  <h4>"Active Stores owned by Cafe23" </h4>
+  <table class="striped highlight">
+    <thead>
+      <th>Name</th>
+      <th>Current Assignments</th>
+      <th>Phone</th>
+      <th class="align_center">Options</th>
+    </thead>
+    <% for store in @active_stores %>
+      <tr>
+        <td><%= link_to "#{store.name}", store_path(store) %></td>
+        <td><%= number_to_phone store.phone %></td>
+        <td class="align_center">
+          <%= link_to edit_store_path(store) do %>
+              <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+          <%= link_to(store_path(store), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+              <i class="material-icons">delete</i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <%# <%= will_paginate @active_stores, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %> %>
+  
+  <h4>"Inactive Stores"</h4>
+
+<% end %>
+<p>&nbsp;</p>
+
+<p><strong>
+<%= link_to "Add a New store", new_store_path, class: 'waves-effect waves-light btn' %> 
+</strong></p>

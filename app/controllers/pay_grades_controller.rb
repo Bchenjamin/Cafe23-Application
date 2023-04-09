@@ -1,6 +1,8 @@
 class PayGradesController < ApplicationController
     before_action :set_pay_grade, only: [:show, :edit, :update]
     before_action :check_login
+    authorize_resource
+    
     def index
         @pay_grades = PayGrade.alphabetical
     end

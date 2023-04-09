@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource
   
   def index
     @active_stores = Store.active.all
@@ -37,9 +38,6 @@ class StoresController < ApplicationController
   end
 
   def destroy
-    begin
-      raise ActionController::UrlGenerationError
-    end
   end
 
   private

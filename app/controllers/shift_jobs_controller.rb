@@ -3,7 +3,6 @@ class ShiftJobsController < ApplicationController
     before_action :check_login
   
   def index
-    @shift_jobs = ShiftJob.alphabetical
   end
 
   def show

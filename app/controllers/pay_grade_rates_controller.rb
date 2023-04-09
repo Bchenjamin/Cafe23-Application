@@ -1,11 +1,10 @@
 class PayGradeRatesController < ApplicationController
     before_action :set_pay_grade_rate, only: [:new]
     before_action :check_login
+    authorize_resource
     
     def new
         @pay_grade_rate = PayGradeRate.new
-        @pay_grade = PayGrade.find(params[:pay_grade_id])
-        @temp = @pay_grade_rate.pay_grades
     end
 
     def create
