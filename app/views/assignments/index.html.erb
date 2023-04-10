@@ -1,4 +1,4 @@
-<% if @active_assignments.empty? %>
+<% if @current_assignments.empty? %>
   <h4>There are no assignments in the system at this time.</h4>
 <% else %>
   <h4>"Current Assignments"</h4>
@@ -11,7 +11,7 @@
       <th>Shift Count</th>
       <th class="align_center">Options</th>
     </thead>
-    <% for assignment in @active_assignments %>
+    <% for assignment in @current_assignments %>
       <tr>
         <td><%= assignment.start_date %></td>
         <td><%= assignment.store.name %></td>
