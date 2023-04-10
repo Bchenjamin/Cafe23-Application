@@ -1,0 +1,23 @@
+<h1><%= state.capitalize %> Employees at Cafe23 </h1>
+<% if employees.empty? %>
+  <p>There are no <%= state.downcase %> in the system at this time.</p>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Name</th>
+      <th>Current Assignment</th>
+      <th>Phone</th>
+      <th class="align_center">Options</th>
+    </thead>
+    <% for employee in employees %>
+      <tr>
+        <td><%= link_to "#{employee.name}", employee_path(employee) %></td>
+        <td><%= if employee.current_assignment.nil? 
+                then "n/a"
+                else store = employee.current_assignment.store; (link_to "#{store.name}", store_path(store)) end %>
+                </td>
+        <td><%= number_to_phone employee.phone %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

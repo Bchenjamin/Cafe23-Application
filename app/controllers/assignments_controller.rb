@@ -4,11 +4,11 @@ class AssignmentsController < ApplicationController
 
     def index
       if current_user.employee_role?
-        @current_assignments = current_user.assignments.current
-        @past_assignments = current_user.assignments.past
+        @current_assignments = current_user.assignments.current.chronological
+        @past_assignments = current_user.assignments.past.chronological
       else
-        @current_assignments = Assignment.current
-        @past_assignments = Assignment.past
+        @current_assignments = Assignment.current.chronological
+        @past_assignments = Assignment.past.chronological
       end
     end
 
