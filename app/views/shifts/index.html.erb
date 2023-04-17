@@ -1,6 +1,8 @@
 <div class="container">
-    <%= render :partial => "shift_list", locals: {employees: @upcoming_shifts, state: 'upcoming'} %>
-    <%= render :partial => "shift_list", locals: {employees: @complete_shifts, state: 'completed'} %>
+    <%= render :partial => "shift_list", locals: {shifts: @upcoming_shifts, state: 'upcoming'} %>
+    <%= render :partial => "shift_list", locals: {shifts: @completed_shifts, state: 'completed'} %>
     <br>
-    <%= link_to "Add a New Shift", new_shift_path, class: 'waves-effect waves-light btn' %>
+    <% if current_user && !current_user.employee_role? %>
+        <%= link_to "Add a New Shift", new_shift_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
 </div>

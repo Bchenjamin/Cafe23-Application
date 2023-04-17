@@ -1,13 +1,12 @@
 <h1><%= state.capitalize %> Employees at Cafe23 </h1>
 <% if employees.empty? %>
-  <p>There are no <%= state.downcase %> in the system at this time.</p>
+  <p>There are no <%= state.downcase %> employees in the system at this time.</p>
 <% else %>
   <table class="striped highlight">
     <thead>
       <th>Name</th>
       <th>Current Assignment</th>
       <th>Phone</th>
-      <th class="align_center">Options</th>
     </thead>
     <% for employee in employees %>
       <tr>

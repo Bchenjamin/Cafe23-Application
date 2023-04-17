@@ -1,1 +1,25 @@
-<h1><%= state.capitalize %> Shifts </h1>
+<h1><%= state.capitalize %> Shifts at Cafe23 </h1>
+<% if shifts.empty? %>
+  <p>There are no <%= state.downcase %> shifts in the system at this time.</p>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Employee</th>
+      <th>Shift Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Notes</th>
+      <th>Status</th>
+    </thead>
+    <% for shift in shifts %>
+      <tr>
+        <td><%= shift.assignment.employee.proper_name %></td>
+        <td><%= shift.date.strftime("%B %d, %Y") %></td>
+        <td><%= shift.start_time.strftime("%l:%M") %></td>
+        <td><%= shift.end_time.strftime("%l:%M") %></td>
+        <td><%= shift.notes %></td>
+        <td><%= shift.status %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

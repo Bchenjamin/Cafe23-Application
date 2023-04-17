@@ -1,0 +1,4 @@
+<%= f.collection_select :employee_id, Employee.alphabetical.active.to_a, :id, :name, prompt: true %>
+<%= f.date_field :start_date %>
+<%= f.date_field :end_date %>
+

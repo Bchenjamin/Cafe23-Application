@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for <%= @employee.name %> </h5><br />
+
+    <b>Username:&nbsp;&nbsp;</b>
+      <%= @employee.username %><br /><br />
+
+    <b>Date of Birth:&nbsp;&nbsp;</b>
+      <%= @employee.date_of_birth %><br /><br />
+
+    <b>Phone:&nbsp;&nbsp;</b>
+      <%= number_to_phone @employee.phone %><br /><br />
+
+    <b>Employee Role:&nbsp;&nbsp;</b>
+      <%= @employee.role.capitalize %><br /><br />
+
+    <b>Active in Cafe23?&nbsp;&nbsp;</b>
+      <% if @employee.active %>
+             <i class="material-icons" %>check</i> 
+          <% else %>
+             <i class="material-icons" %>clear</i> 
+          <% end %>
+    <br><br><br> 
+  </div>
+</div>

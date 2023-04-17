@@ -1,0 +1,21 @@
+<h1><%= state.capitalize %> Employees at Cafe23 </h1>
+<% if stores.empty? %>
+  <h4>There are no <%= state.downcase %> stores in the system at this time.</h4>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Name</th>
+      <th>Current Assignments</th>
+      <th>Phone</th>
+    </thead>
+    <% for store in stores %>
+      <tr>
+        <td><%= link_to "#{store.name}", store_path(store) %></td>
+        <td><%= store.assignments.size %></td>
+        <td><%= number_to_phone store.phone %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+

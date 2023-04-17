@@ -25,7 +25,7 @@
       @employee = Employee.new(employee_params)
       if @employee.save
         flash[:notice] = "Successfully added #{@employee.proper_name} as an employee."
-        redirect_to @employee
+        redirect_to employee_path(Employee.last)
       else
         render action: 'new'
       end
@@ -37,7 +37,7 @@
     def update
       if @employee.update(employee_params)
         flash[:notice] = "Updated #{@employee.proper_name}'s information."
-        redirect_to @employee
+        redirect_to employee_path(@employee)
       else
         render action: 'edit'
       end

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col s9">
+    <div class="card">    
+      <div class="card-content">
+        <%# <h1>Payroll for <%= "#{@employee_payroll.employee_name}" %></h1> %>
+        <h2>from <%= @employee_payroll.start_date %> to <%= @employee_payroll.end_date%> </h2>
+
+        <table class="striped highlight">
+          <thead>
+              <tr>
+                <th>Current Paygrade</th>
+                <th>Current Rate</th>
+                <th>Number of Hours Worked</th>
+                <th>Money Earned in Dollars</th>
+            </tr>
+          </thead>
+            <tr>
+                <td><%= @employee_payroll.pay_grade%></td>
+                <td><%= @employee_payroll.pay_rate%></td>
+                <td><%= @employee_payroll.hours%></td>
+                <td><%= @employee_payroll.pay_earned%></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

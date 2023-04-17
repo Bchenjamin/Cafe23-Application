@@ -4,7 +4,8 @@ class ShiftsController < ApplicationController
   before_action :check_login
   
   def index
-    @shifts = Shift.chronological
+    @upcoming_shifts = Shift.upcoming.chronological
+    @completed_shifts = Shift.completed.chronological
   end
 
   def show

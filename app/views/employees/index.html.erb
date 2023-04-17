@@ -2,6 +2,8 @@
     <%= render :partial => "employee_list", locals: {employees: @active_employees, state: 'active'} %>
     <%= render :partial => "employee_list", locals: {employees: @inactive_employees, state: 'inactive'} %>
     <br>
-    <%= link_to "Add a New Employee", new_employee_path, class: 'waves-effect waves-light btn' %>
-    <%= link_to "Calculate Payrolls", employee_form_path, class: 'waves-effect waves-light btn' %>
+    <% if current_user && current_user.admin_role? %>
+        <%= link_to "Add a New Employee", new_employee_path, class: 'waves-effect waves-light btn' %>
+        <%= link_to "Calculate Payrolls", employee_form_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
 </div>
