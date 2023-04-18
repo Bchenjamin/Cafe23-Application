@@ -1,0 +1,2 @@
+<%= f.association :shift, collection: Shift.chronological.map{|x| [x.date, x.id]} %>
+<%= f.input :job_id, collection: Job.alphabetical.map{|x| [x.name, x.id]}%>

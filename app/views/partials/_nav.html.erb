@@ -1,14 +1,14 @@
 <nav id="nav">
   <div class="container">
     <ul class="left hide-on-med-and-down">
-      <% if current_user && !current_user.employee_role? %>
+      <% if current_user && current_user.admin_role? %>
       <li><%= link_to 'Stores', stores_path %></li>
       <li><%= link_to 'Employees', employees_path %></li>
       <li><%= link_to 'Assignments', assignments_path %></li>
       <li><%= link_to 'Shifts', shifts_path %></li>
       <li><%= link_to 'Jobs', jobs_path %></li>
       <li><%= link_to 'Pay Grades', pay_grades_path %></li>
-      <% elsif current_user && !current_user.admin_role? && !current_user.employee_role? %>
+      <% elsif current_user && current_user.manager_role? %>
       <li><%= link_to 'Store Info', stores_path %></li>
       <li><%= link_to 'My Employees', employees_path %></li>
       <li><%= link_to 'Assignments', assignments_path %></li>

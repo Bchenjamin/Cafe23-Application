@@ -1,4 +1,12 @@
-<%= f.input :employee_id, collection: Employee.alphabetical.active.to_a, include_blank: true %>
+<% if current_user.manager_role? %>
+    <%= f.label :Employee %> 
+    <br>
+    <%= f.input :assignment_id, collection: Assignment.current.for_store(current_user.current_assignment.store).alphabetical.map{|x| [x.employee.name, x.id]}, label: false %>
+<% else %>
+    <%= f.label :Employee %> 
+    <br>
+    <%= f.input :assignment_id, collection: Assignment.current.map{|x| [x.employee.name, x.id]}, label: false %>
+<% end %>
 <%= f.input :date, label_html: { class: 'active' } %>
 <%= f.input :start_time, label_html: { class: 'active' }, as: :time %>
-<%= f.input :end_time %>
+<%= f.input :end_time, label_html: { class: 'active' }, as: :time %>

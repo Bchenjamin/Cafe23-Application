@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for this Shift </h5><br />
+
+    <b>Employee:&nbsp;&nbsp;</b>
+      <%= @shift.assignment.employee.proper_name %><br /><br />
+  
+    <b>Date:&nbsp;&nbsp;</b>
+      <%= @shift.date.strftime("%B %d, %Y") %><br /><br />
+
+    <b>Start Time:&nbsp;&nbsp;</b>
+      <%= @shift.start_time.strftime("%l:%M") %><br /><br />
+
+    <b>End Time:&nbsp;&nbsp;</b>
+      <%= @shift.end_time.strftime("%l:%M")%><br /><br />
+
+    <b>Notes: &nbsp;&nbsp;</b>
+       <%= @shift.notes%><br /><br />
+    
+    <b>Status: &nbsp;&nbsp;</b>
+       <%= @shift.status%><br /><br />
+       
+  </div>
+</div>

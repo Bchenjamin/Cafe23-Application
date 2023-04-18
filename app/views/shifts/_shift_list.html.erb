@@ -1,5 +1,5 @@
 <h1><%= state.capitalize %> Shifts at Cafe23 </h1>
-<% if shifts.empty? %>
+<% if shifts.nil? %>
   <p>There are no <%= state.downcase %> shifts in the system at this time.</p>
 <% else %>
   <table class="striped highlight">
@@ -10,15 +10,32 @@
       <th>End Time</th>
       <th>Notes</th>
       <th>Status</th>
+      <% tmp = shifts.last %>
+      <% if current_user && current_user.employee_role? && tmp.date == Date.current && tmp.status == "pending"%>
+        <th>Start?</th>
+      <% end %>
+      <% if current_user && current_user.employee_role? && tmp.date == Date.current && tmp.status == "started"%>
+        <th>Finish?</th>
+      <% end %>
     </thead>
     <% for shift in shifts %>
       <tr>
-        <td><%= shift.assignment.employee.proper_name %></td>
+        <td><%= link_to "#{shift.assignment.employee.proper_name}", shift_path(shift) %></td>
         <td><%= shift.date.strftime("%B %d, %Y") %></td>
         <td><%= shift.start_time.strftime("%l:%M") %></td>
-        <td><%= shift.end_time.strftime("%l:%M") %></td>
+        <% if shift.end_time.nil? %>
+          <td></td>
+        <% else %>
+          <td><%= shift.end_time.strftime("%l:%M") %></td>
+        <% end %>
         <td><%= shift.notes %></td>
         <td><%= shift.status %></td>
+        <% if current_user && current_user.employee_role? && shift.status == "pending" && shift.date == Date.current %>
+          <td><%= link_to "Start Shift!", time_in_path, :method=> :patch, class: "waves-effect waves-light btn" %></td>
+        <% end %>
+        <% if current_user && current_user.employee_role? && shift.status == "started" && shift.date == Date.current %>
+          <td><%= link_to "Finish Shift!", time_out_path, :method=> :patch, class: "waves-effect waves-light btn" %></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
