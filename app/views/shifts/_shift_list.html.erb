@@ -9,7 +9,6 @@
       <th>Shift Date</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Notes</th>
       <th>Status</th>
       <% tmp = shifts.last %>
       <% if current_user && current_user.employee_role? && tmp.date == Date.current && tmp.status == "pending"%>
@@ -30,7 +29,6 @@
         <% else %>
           <td><%= shift.end_time.strftime("%l:%M %p") %></td>
         <% end %>
-        <td><%= shift.notes %></td>
         <td><%= shift.status %></td>
         <% if current_user && current_user.employee_role? && shift.status == "pending" && shift.date == Date.current %>
           <td><%= link_to "Start Shift!", time_in_path, :method=> :patch, class: "waves-effect waves-light btn" %></td>

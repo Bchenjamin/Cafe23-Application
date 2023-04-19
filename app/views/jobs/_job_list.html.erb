@@ -6,17 +6,11 @@
     <thead>
       <th>Job Title</th>
       <th>Description</th>
-      <th>Active in Cafe23?</th>
     </thead>
     <% for job in jobs %>
       <tr>
         <td><%= job.name %></td>
         <td><%= job.description%></td>
-        <% if job.active == true %>
-            <td><i class="material-icons" %>check</i></td>
-        <% else %>
-            <td><i class="material-icons" %>clear</i></td>
-        <% end %>
       </tr>
     <% end %>
   </table>

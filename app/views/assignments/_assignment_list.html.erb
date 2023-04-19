@@ -10,7 +10,6 @@
       <% end %>
       <th>Store</th>
       <th>Employee</th>
-      <th>Pay Grade</th>
       <th>Shift Count</th>
     </thead>
     <% for assignment in assignments %>
@@ -21,7 +20,6 @@
         <% end %>
         <td><%= assignment.store.name %></td>
         <td><%= assignment.employee.proper_name %></td>
-        <td><%= assignment.pay_grade.level %></td>
         <td><%= assignment.shifts.size %></td>
       </tr>
     <% end %>
