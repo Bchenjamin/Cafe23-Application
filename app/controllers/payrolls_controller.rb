@@ -5,7 +5,7 @@ class PayrollsController < ApplicationController
     end
 
     def employee_form
-        authorize! :employee_form, :payrolls_controller
+    
         if current_user.manager_role?
             redirect_to home_path
         end
@@ -22,8 +22,7 @@ class PayrollsController < ApplicationController
         authorize! :store_report, :payrolls_controller
         @store_payroll = PayrollCalculator.new(DateRange.new(params[:start_date].to_s.to_date, params[:end_date].to_s.to_date))
         @store = Store.find(store_params[:store_id])
-        if current_user && current_user.admin_role?
-            @store = Store.find(params["store_id"].to_i)
+        if current_user.admin_role?
             @store_pay = @store_payroll.create_payrolls_for(@store)
         else 
             @store_pay = @store_payroll.create_payrolls_for(current_user.current_assignment.store)

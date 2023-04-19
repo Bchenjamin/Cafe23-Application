@@ -9,6 +9,7 @@
           <thead>
               <tr>
                 <th>Employee Name</th>
+                <th>Employee SSN</th>
                 <th>Current Paygrade</th>
                 <th>Current Rate</th>
                 <th>Number of Hours Worked</th>
@@ -17,6 +18,7 @@
           </thead>
           <% for store in @store_pay %>
             <tr>
+                <td><%= store.employee_name%></td>
                 <td><%= store.employee_name%></td>
                 <td><%= store.pay_grade%></td>
                 <td><%= store.pay_rate%></td>

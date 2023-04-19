@@ -2,8 +2,8 @@
   <div class="col s9">
     <div class="card">    
       <div class="card-content">
-        <h1>Payroll for <%= "#{@emp_pay.employee_name}" %></h1>
-        <h2>from <%= @employee_payroll.start_date %> to <%= @employee_payroll.end_date%> </h2>
+        <h3>Payroll for <%= "#{@emp_pay.employee_name} (SSN: #{@employee.ssn})" %></h3>
+        <h4>from <%= @employee_payroll.start_date %> to <%= @employee_payroll.end_date%> </h4>
 
         <table class="striped highlight">
           <thead>
