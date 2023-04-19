@@ -18,7 +18,7 @@
                 <td><%= @emp_pay.pay_grade%></td>
                 <td><%= @emp_pay.pay_rate%></td>
                 <td><%= @emp_pay.hours%></td>
-                <td><%= @emp_pay.pay_earned%></td>
+                <td><%= "$#{@emp_pay.pay_earned.round(2)}"%></td>
             </tr>
         </table>
       </div>

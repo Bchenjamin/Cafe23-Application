@@ -2,7 +2,7 @@
   <div class="col s9">
     <div class="card">    
       <div class="card-content">
-        <h1>Payroll for <%= "#{@store.name}" %></h1>
+        <h1>Payroll for </h1>
         <h2>from <%= @store_payroll.start_date %> to <%= @store_payroll.end_date%> </h2>
 
         <table class="striped highlight">
@@ -19,11 +19,11 @@
           <% for store in @store_pay %>
             <tr>
                 <td><%= store.employee_name%></td>
-                <td><%= store.employee_name%></td>
+                <td><%= store.employee.ssn%></td>
                 <td><%= store.pay_grade%></td>
                 <td><%= store.pay_rate%></td>
                 <td><%= store.hours%></td>
-                <td><%= store.pay_earned%></td>
+                <td><%= "$#{store.pay_earned.round(2)}"%></td>
             </tr>
           <% end %>
         </table>
