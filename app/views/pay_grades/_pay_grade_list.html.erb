@@ -4,13 +4,19 @@
 <% else %>
   <table class="striped highlight">
     <thead>
-      <th>Level </th>
+      <th>Level</th>
+      <th>Paygrade Rate</th>
       <th>Active?</th>
       <th></th>
     </thead>
     <% for paygrade in pay_grades %>
       <tr>
         <td><%= link_to"#{paygrade.level}", pay_grade_path(paygrade) %></td>
+        <% if paygrade.current_rate.nil? %>
+          <td><%= "N/A" %></td>
+        <% else %>
+          <td><%= paygrade.current_rate.rate%></td>
+        <% end %>
         <% if paygrade.active %>
             <td><i class="material-icons" %>check</i></td>
         <% else %>

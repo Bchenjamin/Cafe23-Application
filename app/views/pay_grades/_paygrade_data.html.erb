@@ -5,6 +5,13 @@
     <b>Paygrade Level:&nbsp;&nbsp;</b>
       <%= @pay_grade.level %><br /><br />
     
+    <b>Paygrade Rate:&nbsp;&nbsp;</b>
+      <% if @pay_grade.current_rate.nil? %>
+          <%= "N/A" %><br /><br />
+      <% else %>
+          <%= @pay_grade.current_rate.rate%><br /><br />
+      <% end %>
+    
     <b>Active in Cafe23?&nbsp;&nbsp;</b>
       <% if @pay_grade.active %>
         <i class="material-icons" %>check</i><br /><br />
