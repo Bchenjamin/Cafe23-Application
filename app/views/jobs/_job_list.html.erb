@@ -6,11 +6,25 @@
     <thead>
       <th>Job Title</th>
       <th>Description</th>
+      <% if current_user.admin_role? %>
+        <th class="align_center">Options</th>
+      <% end %>
     </thead>
     <% for job in jobs %>
       <tr>
         <td><%= job.name %></td>
         <td><%= job.description%></td>
+        <% if current_user.admin_role? %>
+          <td class="align_center">
+          <%= link_to edit_job_path(job) do %>
+                <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+          <%= link_to(job_path(job), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+              <i class="material-icons">delete</i>
+          <% end %>
+        </td>
+      <% end %>
       </tr>
     <% end %>
   </table>
