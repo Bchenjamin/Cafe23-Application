@@ -4,15 +4,18 @@
 
     <b>Employee:&nbsp;&nbsp;</b>
       <%= @shift.assignment.employee.proper_name %><br /><br />
+    
+    <b>Store:&nbsp;&nbsp;</b>
+      <%= @shift.store.name %><br /><br />
   
     <b>Date:&nbsp;&nbsp;</b>
       <%= @shift.date.strftime("%B %d, %Y") %><br /><br />
 
     <b>Start Time:&nbsp;&nbsp;</b>
-      <%= @shift.start_time.strftime("%l:%M") %><br /><br />
+      <%= @shift.start_time.strftime("%l:%M %p") %><br /><br />
 
     <b>End Time:&nbsp;&nbsp;</b>
-      <%= @shift.end_time.strftime("%l:%M")%><br /><br />
+      <%= @shift.end_time.strftime("%l:%M %p")%><br /><br />
 
     <b>Notes: &nbsp;&nbsp;</b>
        <%= @shift.notes%><br /><br />

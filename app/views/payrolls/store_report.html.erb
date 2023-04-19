@@ -3,7 +3,7 @@
     <div class="card">    
       <div class="card-content">
         <h1>Payroll for </h1>
-        <h2>from <%= @store_payroll.start_date %> to <%= @store_payroll.end_date%> </h2>
+        <h2>from <%= @store_payroll.start_date.strftime("%m/%d/%y") %> to <%= @store_payroll.end_date.strftime("%m/%d/%y") %> </h2>
 
         <table class="striped highlight">
           <thead>
@@ -13,7 +13,7 @@
                 <th>Current Paygrade</th>
                 <th>Current Rate</th>
                 <th>Number of Hours Worked</th>
-                <th>Money Earned in Dollars</th>
+                <th>Money Earned</th>
               </tr>
           </thead>
           <% for store in @store_pay %>
@@ -23,7 +23,7 @@
                 <td><%= store.pay_grade%></td>
                 <td><%= store.pay_rate%></td>
                 <td><%= store.hours%></td>
-                <td><%= "$#{store.pay_earned.round(2)}"%></td>
+                <td><%= number_to_currency(store.pay_earned) %></td>
             </tr>
           <% end %>
         </table>
