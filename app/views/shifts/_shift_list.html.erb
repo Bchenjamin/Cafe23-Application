@@ -21,7 +21,7 @@
     <% for shift in shifts %>
       <tr>
         <td><%= link_to "#{shift.assignment.employee.name}", shift_path(shift) %></td>
-        <td><%= shift.store.name %></td>
+        <td><%= link_to "#{shift.store.name}", store_path(shift.store) %></td>
         <td><%= shift.date.strftime("%B %d, %Y") %></td>
         <td><%= shift.start_time.strftime("%l:%M %p") %></td>
         <% if shift.end_time.nil? %>

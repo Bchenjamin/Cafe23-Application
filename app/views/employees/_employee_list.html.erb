@@ -12,7 +12,7 @@
       <tr>
         <td><%= link_to "#{employee.name}", employee_path(employee) %></td>
         <td><%= if employee.current_assignment.nil? 
-                then "n/a"
+                then "N/A"
                 else store = employee.current_assignment.store; (link_to "#{store.name}", store_path(store)) end %>
                 </td>
         <td><%= number_to_phone employee.phone %></td>

@@ -7,6 +7,9 @@
 
     <b>Date of Birth:&nbsp;&nbsp;</b>
       <%= @employee.date_of_birth %><br /><br />
+    
+    <b>SSN:&nbsp;&nbsp;</b>
+      <%= "#{@employee.ssn[0..2]}-#{@employee.ssn[3..4]}-#{@employee.ssn[5..8]}" %><br /><br />
 
     <b>Phone:&nbsp;&nbsp;</b>
       <%= number_to_phone @employee.phone %><br /><br />

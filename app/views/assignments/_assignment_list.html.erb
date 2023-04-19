@@ -19,9 +19,19 @@
         <% if !(assignment.end_date.nil?) %>
            <td><%= assignment.end_date.strftime("%m/%d/%y") %></td>
         <% end %>
-        <td><%= assignment.store.name %></td>
-        <td><%= assignment.employee.proper_name %></td>
-        <td><%= assignment.pay_grade.level %></td>
+        <% if current_user && current_user.admin_role? %>
+          <td><%= link_to "#{assignment.store.name}", store_path(assignment.store) %></td>
+          <td><%= link_to "#{assignment.employee.proper_name}", employee_path(assignment.employee) %></td>
+          <td><%= link_to "#{assignment.pay_grade.level}", pay_grade_path(assignment.pay_grade) %></td>
+        <% elsif current_user && current_user.manager_role? %>
+          <td><%= link_to "#{assignment.store.name}", store_path(assignment.store) %></td>
+          <td><%= link_to "#{assignment.employee.proper_name}", employee_path(assignment.employee) %></td>
+          <td><%= assignment.pay_grade.level %></td>
+        <% else %>
+          <td><%= assignment.store.name %></td>
+          <td><%= link_to "#{assignment.employee.proper_name}", employee_path(assignment.employee) %></td>
+          <td><%= assignment.pay_grade.level %></td>
+        <% end %>
         <td><%= assignment.shifts.size %></td>
       </tr>
     <% end %>

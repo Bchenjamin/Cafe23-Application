@@ -20,11 +20,13 @@
                 <i class="material-icons">edit</i>
           <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp; 
-          <%= link_to(job_path(job), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-              <i class="material-icons">delete</i>
+          <% if job.shift_jobs.empty? %>
+            <%= link_to(job_path(job), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                <i class="material-icons">delete</i>
+            <% end %>
           <% end %>
+        <% end %>
         </td>
-      <% end %>
       </tr>
     <% end %>
   </table>
