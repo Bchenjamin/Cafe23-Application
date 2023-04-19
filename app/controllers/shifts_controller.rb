@@ -5,7 +5,7 @@ class ShiftsController < ApplicationController
   
   def index
     @upcoming_shifts = Shift.upcoming.chronological
-    @completed_shifts = Shift.completed.chronological
+    @completed_shifts = Shift.past.chronological
   end
 
   def show

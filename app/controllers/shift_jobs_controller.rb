@@ -15,6 +15,7 @@ class ShiftJobsController < ApplicationController
   def create
     @shift_job = ShiftJob.new(shift_job_params)
     if @shift_job.save
+      flash[:notice] = "Successfully added #{@shift_job.job.name} Job to #{@shift_job.shift.assignment.employee.proper_name}."
       redirect_to shift_path(ShiftJob.last.shift)
     else
       render action: 'new'

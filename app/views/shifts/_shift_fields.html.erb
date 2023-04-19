@@ -11,4 +11,4 @@
 <%= f.input :start_time, label_html: { class: 'active' }, as: :time %>
 <%= f.input :end_time, label_html: { class: 'active' }, as: :time %>
 <%= f.input :notes, label_html: { class: 'active' } %>
-<%= f.input :status, label_html: { class: 'active' } %>
+<%= f.input :status, collection: Shift.statuses.keys, include_blank: true %>

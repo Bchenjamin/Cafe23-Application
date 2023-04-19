@@ -3,4 +3,4 @@
 <% else %>
     <%= f.input :shift_id, collection: Shift.chronological.map{|x| ["#{x.employee.name}, #{x.date}", x.id]} %>
 <% end %>
-<%= f.input :job_id, collection: Job.alphabetical.map{|x| [x.name, x.id]}%>
+<%= f.input :job_id, collection: Job.active.alphabetical.map{|x| [x.name, x.id]}%>
