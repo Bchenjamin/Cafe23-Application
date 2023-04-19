@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for this Job </h5><br />
+
+    <b>Name:&nbsp;&nbsp;</b>
+      <%= @job.name %><br /><br />
+
+    <b>Description:&nbsp;&nbsp;</b>
+      <%= @job.description %><br /><br />
+    
+     <b>Active in Cafe23?&nbsp;&nbsp;</b>
+      <% if @job.active %>
+             <i class="material-icons" %>check</i> 
+          <% else %>
+             <i class="material-icons" %>clear</i> 
+          <% end %>
+  
+  </div>
+</div>

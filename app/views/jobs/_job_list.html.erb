@@ -1,0 +1,23 @@
+<h1><%= state.capitalize %> Jobs at Cafe23 </h1>
+<% if jobs.nil? %>
+  <p>There are no <%= state.downcase %> jobs in the system at this time.</p>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Job Title</th>
+      <th>Description</th>
+      <th>Active in Cafe23?</th>
+    </thead>
+    <% for job in jobs %>
+      <tr>
+        <td><%= job.name %></td>
+        <td><%= job.description%></td>
+        <% if job.active == true %>
+            <td><i class="material-icons" %>check</i></td>
+        <% else %>
+            <td><i class="material-icons" %>clear</i></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

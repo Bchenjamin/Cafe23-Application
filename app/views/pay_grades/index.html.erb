@@ -1,0 +1,7 @@
+<div class="container">
+    <%= render :partial => "pay_grade_list", locals: {pay_grades: @pay_grades, state: 'active'} %>
+    <br>
+    <% if current_user && current_user.admin_role? %>
+        <%= link_to "Add a New Pay Grade", new_pay_grade_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
+</div>

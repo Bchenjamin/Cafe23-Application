@@ -1,8 +1,10 @@
 class JobsController < ApplicationController
-    before_action :set_job, only: [:show, :edit, :update, :destroy]
+    before_action :set_job, only: [:edit, :update, :destroy]
     before_action :check_login
 
     def index
+      @active_jobs = Job.alphabetical.active
+      @inactive_jobs = Job.alphabetical.inactive
     end
 
     def new

@@ -1,2 +1,6 @@
-<%= f.association :shift, collection: Shift.chronological.map{|x| [x.date, x.id]} %>
+<% if params[:shift_id] %>
+    <%= f.input :shift_id, collection: Shift.chronological.map{|x| ["#{x.employee.name}, #{x.date}", x.id]}, selected: params[:shift_id] %>
+<% else %>
+    <%= f.input :shift_id, collection: Shift.chronological.map{|x| ["#{x.employee.name}, #{x.date}", x.id]} %>
+<% end %>
 <%= f.input :job_id, collection: Job.alphabetical.map{|x| [x.name, x.id]}%>

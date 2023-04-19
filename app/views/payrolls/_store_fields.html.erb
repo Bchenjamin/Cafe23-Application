@@ -1,5 +1,8 @@
 <% if current_user && current_user.admin_role? %>
     <%= f.collection_select :store_id, Store.alphabetical.active.to_a, :id, :name, prompt: true %>
+    <%= f.date_field :start_date %>
+    <%= f.date_field :end_date %>
+<% elsif current_user && current_user.manager_role? %>
+    <%= f.date_field :start_date %>
+    <%= f.date_field :end_date %>
 <% end %>
-<%= f.date_field :start_date %>
-<%= f.date_field :end_date %>

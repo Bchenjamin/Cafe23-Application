@@ -10,18 +10,18 @@ html {
 
 /********** TOPBAR & NAV ********/
 #topbar {
-  background-color: #000000;
+  background-color: #1E152A;
   padding-top: 5px;
   margin-bottom: 0px;
-  color: #FFCB05;
+  color: #e6e6ea;
 }
 
 #topbar a {
-  color: #FFCB05;
+  color: #009FB7;
 }
 
 #nav {
-  background-color: #000;
+  background-color: #857885;
   height: 50px;
 }
 
@@ -70,11 +70,11 @@ html {
 
 /********** TABLES ********/
 table.striped > tbody > tr:nth-child(odd) {
-  background-color: #fff;
+  background-color: #f2f8f4;
 }
 
 table.striped > tbody > tr:nth-child(even) {
-  background-color: #fffde7;
+  background-color: #e4f1e9;
 }
 
 table.highlight > tbody > tr:hover {
@@ -129,15 +129,15 @@ th.align_center {
 
 /********** FORMS ********/
 .switch label input[type=checkbox]:checked + .lever {
-  background-color: #ffea00;
+  background-color: #262626;
 }
 
 .switch label input[type=checkbox]:checked + .lever::after {
-  background-color: #FFCB05;
+  background-color: #fe5f55;
 }
 
 .picker__date-display {
-  background-color: #FFCB05;
+  background-color: #b8d8d8;
   color: #000;
 }
 

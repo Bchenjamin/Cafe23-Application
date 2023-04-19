@@ -14,7 +14,7 @@
 
     def show
       @current_assignment = @employee.current_assignment
-      @other_assignments = @employee.assignments
+      @other_assignments = @employee.assignments.past
     end
 
     def new

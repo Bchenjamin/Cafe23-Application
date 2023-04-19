@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for <%= @store.name %> </h5><br />
+
+    <b>Street:&nbsp;&nbsp;</b>
+      <%= @store.street %><br /><br />
+    
+    <b>City:&nbsp;&nbsp;</b>
+      <%= @store.city %><br /><br />
+    
+    <b>State:&nbsp;&nbsp;</b>
+      <%= @store.state %><br /><br />
+    
+    <b>Zip Code:&nbsp;&nbsp;</b>
+      <%= @store.zip %><br /><br />
+    
+    <b>Phone:&nbsp;&nbsp;</b>
+      <%= number_to_phone @store.phone %><br /><br />
+    
+     <b>Active in Cafe23?&nbsp;&nbsp;</b>
+      <% if @store.active %>
+             <i class="material-icons" %>check</i> 
+          <% else %>
+             <i class="material-icons" %>clear</i> 
+          <% end %>
+    <br><br><br> 
+   
+  </div>
+</div>

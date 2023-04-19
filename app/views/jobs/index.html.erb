@@ -1,0 +1,8 @@
+<div class="container">
+    <%= render :partial => "job_list", locals: {jobs: @active_jobs, state: 'active'} %>
+    <%= render :partial => "job_list", locals: {jobs: @inactive_jobs, state: 'inactive'} %>
+    <br>
+    <% if current_user && current_user.admin_role? %>
+        <%= link_to "Add a New Job", new_job_path, class: 'waves-effect waves-light btn' %>
+    <% end %>
+</div>

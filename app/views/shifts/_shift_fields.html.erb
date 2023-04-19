@@ -1,8 +1,8 @@
 <% if current_user.manager_role? %>
     <%= f.label :Employee %> 
     <br>
-    <%= f.input :assignment_id, collection: Assignment.current.for_store(current_user.current_assignment.store).alphabetical.map{|x| [x.employee.name, x.id]}, label: false %>
-<% else %>
+    <%= f.input :assignment_id, collection: Assignment.current.for_store(current_user.current_assignment.store).chronological.map{|x| [x.employee.name, x.id]}, label: false %>
+<% elsif current_user.admin_role? %>
     <%= f.label :Employee %> 
     <br>
     <%= f.input :assignment_id, collection: Assignment.current.map{|x| [x.employee.name, x.id]}, label: false %>
@@ -10,3 +10,5 @@
 <%= f.input :date, label_html: { class: 'active' } %>
 <%= f.input :start_time, label_html: { class: 'active' }, as: :time %>
 <%= f.input :end_time, label_html: { class: 'active' }, as: :time %>
+<%= f.input :notes, label_html: { class: 'active' } %>
+<%= f.input :status, label_html: { class: 'active' } %>

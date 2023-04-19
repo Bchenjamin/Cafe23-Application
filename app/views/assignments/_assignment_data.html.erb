@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for this Assignment </h5><br />
+
+    <b>Start Date:&nbsp;&nbsp;</b>
+      <%= @assignment.start_date.strftime("%m/%d/%y") %><br /><br />
+
+    <b>End Date:&nbsp;&nbsp;</b>
+       <% if @assignment.end_date.nil? %>
+           <td><%= "NA" %></td><br /><br />
+        <% else %>
+           <td><%= @assignment.end_date.strftime("%m/%d/%y") %></td><br /><br />
+        <% end %>
+
+    <b>Store Name:&nbsp;&nbsp;</b>
+      <%= @assignment.store.name %><br /><br />
+
+    <b>Employee Name:&nbsp;&nbsp;</b>
+      <%= @assignment.employee.proper_name %><br /><br />
+
+    <b>Pay Grade Level:&nbsp;&nbsp;</b>
+        <%= @assignment.pay_grade.level %><br /><br />
+    
+    <b>Shift Count:&nbsp;&nbsp;</b>
+        <%= @assignment.shifts.size %><br /><br />
+  
+  </div>
+</div>

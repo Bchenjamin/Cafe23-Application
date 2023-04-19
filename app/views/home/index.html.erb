@@ -1,5 +1,5 @@
 <div class="row">  
-  <h4>Welcome to Cafe23!</h4>  
+  <h1>Welcome to Cafe23!</h1>  
   <div class="col s9">
     <div class="card">
       <div class="card-content">
@@ -10,8 +10,14 @@
             <a href=shifts>click here</a>.</p>
           </body> %>
           <%= render :partial => "shifts/shift_list", locals: {shifts: current_user.shifts.upcoming, state: 'upcoming'} %>
-        <% else %>
-          <p> test</p>
+        <% elsif !logged_in? %>
+          <p> Cafe23 is a state-of-the-art cafe specializing in premium hot beverages and baked goods in Pittsburgh!</p>
+          <p> To view your dashboard, please log in! If you are a guest, a list of stores has been provided for you below. </p>
+          <%= render :partial => "stores/store_list_guest", locals: {stores: Store.alphabetical.active, state: 'active'} %>
+        <% elsif current_user.admin_role? %>
+          <%= "Welcome back, #{current_user.proper_name}. You currently have admin privileges." %>
+        <% elsif current_user.manager_role? %>
+          <%= "Welcome back, #{current_user.proper_name}. You currently have manager privileges." %>
         <% end %>
       </div>
     </div>

@@ -5,6 +5,7 @@
   <table class="striped highlight">
     <thead>
       <th>Employee</th>
+      <th>Store</th>
       <th>Shift Date</th>
       <th>Start Time</th>
       <th>End Time</th>
@@ -21,12 +22,13 @@
     <% for shift in shifts %>
       <tr>
         <td><%= link_to "#{shift.assignment.employee.proper_name}", shift_path(shift) %></td>
+        <td><%= shift.store.name %></td>
         <td><%= shift.date.strftime("%B %d, %Y") %></td>
-        <td><%= shift.start_time.strftime("%l:%M") %></td>
+        <td><%= shift.start_time.strftime("%l:%M %p") %></td>
         <% if shift.end_time.nil? %>
           <td></td>
         <% else %>
-          <td><%= shift.end_time.strftime("%l:%M") %></td>
+          <td><%= shift.end_time.strftime("%l:%M %p") %></td>
         <% end %>
         <td><%= shift.notes %></td>
         <td><%= shift.status %></td>

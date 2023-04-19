@@ -1,0 +1,27 @@
+<h2>Cafe23 Stores </h2>
+<% if stores.empty? %>
+  <h4>There are no <%= state.downcase %> stores in the system at this time.</h4>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Name</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+    </thead>
+      <% for store in stores %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.street %></td>
+          <td><%= store.city %></td>
+          <td><%= store.state %></td>
+          <td><%= store.zip %></td>
+          <td><%= number_to_phone store.phone %></td>
+        </tr>
+      <% end %>
+  </table>
+<% end %>
+
+

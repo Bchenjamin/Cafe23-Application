@@ -1,0 +1,22 @@
+<h1>Paygrades at Cafe23 </h1>
+<% if pay_grades.empty? %>
+  <p>There are no <%= state.downcase %> paygrades in the system at this time.</p>
+<% else %>
+  <table class="striped highlight">
+    <thead>
+      <th>Level </th>
+      <th>Active?</th>
+      <th></th>
+    </thead>
+    <% for paygrade in pay_grades %>
+      <tr>
+        <td><%= link_to"#{paygrade.level}", pay_grade_path(paygrade) %></td>
+        <% if paygrade.active %>
+            <td><i class="material-icons" %>check</i></td>
+        <% else %>
+            <td><i class="material-icons" %>clear</i></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

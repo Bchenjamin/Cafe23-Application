@@ -21,16 +21,14 @@
         <%= @current_assignment.store.name %>
       <% end %><br /><br />
 
-    <b>Past Assignments:&nbsp;&nbsp;</b>
-      <% if @other_assignments.nil? %>
-        <% "N/A" %>
-      <% else %>
+    <% if !(@other_assignments.nil?) %>
+      <b>Past Assignments:&nbsp;&nbsp;</b> <br /><br />
         <% for asgn in @other_assignments %>
-          <% if !(@current_assignment.nil?) && asgn.store.name != @current_assignment.store.name %>
             <%= asgn.store.name %>
-          <% end %>
-        <% end %><br /><br />
-      <% end %>
+            <%= "(#{asgn.start_date.strftime("%m/%d/%y")} - #{asgn.end_date.strftime("%m/%d/%y")}) as #{asgn.employee.role.capitalize}" %>
+            <br /><br />
+        <% end %>
+    <% end %>
 
     <b>Active in Cafe23?&nbsp;&nbsp;</b>
       <% if @employee.active %>

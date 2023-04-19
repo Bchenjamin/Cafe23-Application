@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Information for this Paygrade </h5><br />
+
+    <b>Paygrade Level:&nbsp;&nbsp;</b>
+      <%= @pay_grade.level %><br /><br />
+    
+    <b>Active in Cafe23?&nbsp;&nbsp;</b>
+      <% if @pay_grade.active %>
+        <i class="material-icons" %>check</i><br /><br />
+      <% else %>
+        <i class="material-icons" %>clear</i><br /><br />
+      <% end %>
+    
+    <b>Paygrade Rate History:&nbsp;&nbsp;</b>
+      <% if @pay_grade_rate_history.empty? %>
+        <%= "There is no paygrade rate history for this paygrade" %>
+      <% else %>
+        <table class="striped highlight">
+            <thead>
+            <th>Rate</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            </thead>
+            <% for pay in @pay_grade_rate_history %>
+                <tr>
+                    <td><%= pay.rate %></td>
+                    <td><%= pay.start_date.strftime("%m/%d/%y") %></td>
+                    <% if pay.end_date.nil? %>
+                        <td><%= "N/A" %>
+                    <% else %>
+                        <td><%= pay.end_date.strftime("%m/%d/%y") %></td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </table>
+      <% end %>
+  </div>
+</div>

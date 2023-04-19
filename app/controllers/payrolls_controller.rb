@@ -22,7 +22,12 @@ class PayrollsController < ApplicationController
         authorize! :store_report, :payrolls_controller
         @store_payroll = PayrollCalculator.new(DateRange.new(params[:start_date].to_s.to_date, params[:end_date].to_s.to_date))
         @store = Store.find(store_params[:store_id])
-        @store_pay = @store_payroll.create_payrolls_for(@store)
+        if current_user && current_user.admin_role?
+            @store = Store.find(params["store_id"].to_i)
+            @store_pay = @store_payroll.create_payrolls_for(@store)
+        else 
+            @store_pay = @store_payroll.create_payrolls_for(current_user.current_assignment.store)
+        end
     end
 
     private
