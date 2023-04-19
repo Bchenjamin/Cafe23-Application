@@ -2,9 +2,12 @@
   <div class="col s9">
     <div class="card">    
       <div class="card-content">
-        <h3>Payroll for <%= "#{@emp_pay.employee_name} (SSN: #{@employee.ssn})" %></h3>
+        <h3>Payroll for <%= "#{@emp_pay.employee_name} (SSN: #{@employee.ssn[0..2]}-#{@employee.ssn[3..4]}-#{@employee.ssn[5..8]})" %></h3>
         <h4>from <%= @employee_payroll.start_date.strftime("%m/%d/%y") %> to <%= @employee_payroll.end_date.strftime("%m/%d/%y") %> </h4>
-
+       
+        <% if @emp_pay.pay_grade.nil? %>
+          <%= "No records found" %>
+        <% else %>
         <table class="striped highlight">
           <thead>
               <tr>
@@ -15,12 +18,13 @@
             </tr>
           </thead>
             <tr>
-                <td><%= @emp_pay.pay_grade%></td>
-                <td><%= @emp_pay.pay_rate%></td>
-                <td><%= @emp_pay.hours%></td>
+                <td><%= @emp_pay.pay_grade %></td>
+                <td><%= @emp_pay.pay_rate %></td>
+                <td><%= @emp_pay.hours %></td>
                 <td><%= number_to_currency(@emp_pay.pay_earned) %></td>
             </tr>
         </table>
+        <% end %>
       </div>
     </div>
   </div>
