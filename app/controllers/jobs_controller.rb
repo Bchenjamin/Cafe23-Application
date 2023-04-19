@@ -3,8 +3,8 @@ class JobsController < ApplicationController
     before_action :check_login
 
     def index
-      @active_jobs = Job.alphabetical.active
-      @inactive_jobs = Job.alphabetical.inactive
+      @active_jobs = Job.active.alphabetical
+      @inactive_jobs = Job.inactive.alphabetical
     end
 
     def new

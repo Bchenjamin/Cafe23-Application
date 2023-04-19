@@ -4,17 +4,17 @@
 
     def index
       if current_user.admin_role?
-        @active_employees = Employee.active
-        @inactive_employees = Employee.inactive
+        @active_employees = Employee.active.alphabetical
+        @inactive_employees = Employee.inactive.alphabetical
       else # manager role 
-        @active_employees = current_user.current_assignment.store.employees.active
-        @inactive_employees = current_user.current_assignment.store.employees.inactive
+        @active_employees = current_user.current_assignment.store.employees.active.alphabetical
+        @inactive_employees = current_user.current_assignment.store.employees.inactive.alphabetical
       end
     end
 
     def show
       @current_assignment = @employee.current_assignment
-      @other_assignments = @employee.assignments.past
+      @other_assignments = @employee.assignments.past.chronological
     end
 
     def new
