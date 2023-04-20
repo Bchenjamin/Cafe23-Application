@@ -19,7 +19,7 @@
     <% else %>
       <% for store in stores %>
         <tr>
-          <% if !(current_user.nil?) && current_user.stores.first.name == store.name %>
+          <% if !(current_user.nil?) && current_user.current_assignment.store.name == store.name %>
              <td><%= link_to "#{store.name}", store_path(store) %></td>
           <% else %>
             <td><%= store.name %></td>

@@ -10,7 +10,7 @@
         <%= jobs.map{|x| x.name}.join(", ") %>
       <% end %>
       <br /><br />
-      <% if @shift.status == 'finished' %>
+      <% if @shift.date < Date.current %>
         <%= link_to "Assign a Job", new_shift_job_path(shift_id: @shift.id), class: "waves-effect waves-light btn" %>
       <% end %>
     </table>

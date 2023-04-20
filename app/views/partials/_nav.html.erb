@@ -15,7 +15,7 @@
         <li><%= link_to 'Shifts', shifts_path %></li>
       <% elsif current_user && current_user.employee_role? %>
         <li><%= link_to 'My Details', employee_path(current_user) %></li>
-        <li><%= link_to 'My Assignments', assignments_path %></li>
+        <li><%= link_to 'My Current Assignment', assignment_path(current_user.current_assignment) %></li>
         <li><%= link_to 'My Shifts', home_path %></li>
       <% else %>
         
