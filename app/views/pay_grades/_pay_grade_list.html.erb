@@ -13,9 +13,9 @@
       <tr>
         <td><%= link_to"#{paygrade.level}", pay_grade_path(paygrade) %></td>
         <% if paygrade.current_rate.nil? %>
-          <td><%= "N/A" %></td>
+          <td><%= "n/a" %></td>
         <% else %>
-          <td><%= paygrade.current_rate.rate%></td>
+          <td><%= number_to_currency "#{paygrade.current_rate.rate}/hour"%></td>
         <% end %>
         <% if paygrade.active %>
             <td><i class="material-icons" %>check</i></td>

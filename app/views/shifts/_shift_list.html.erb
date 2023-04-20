@@ -26,7 +26,7 @@
         <% else %>
           <td><%= link_to "#{shift.store.name}", store_path(shift.store) %></td>
         <% end %>
-        <td><%= shift.date.strftime("%B %d, %Y") %></td>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
         <td><%= shift.start_time.strftime("%l:%M %p") %></td>
         <% if shift.end_time.nil? %>
           <td></td>

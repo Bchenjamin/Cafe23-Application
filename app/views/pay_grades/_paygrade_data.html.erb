@@ -21,7 +21,7 @@
     
     <b>Paygrade Rate History:&nbsp;&nbsp;</b>
       <% if @pay_grade_rate_history.empty? %>
-        <%= "NA" %>
+        <%= "n/a" %>
       <% else %>
         <table class="striped highlight">
             <thead>
@@ -31,10 +31,10 @@
             </thead>
             <% for pay in @pay_grade_rate_history %>
                 <tr>
-                    <td><%= pay.rate %></td>
+                    <td><%= number_to_currency "#{pay.rate}/hour" %></td>
                     <td><%= pay.start_date.strftime("%m/%d/%y") %></td>
                     <% if pay.end_date.nil? %>
-                        <td><%= "N/A" %>
+                        <td><%= "n/a" %>
                     <% else %>
                         <td><%= pay.end_date.strftime("%m/%d/%y") %></td>
                     <% end %>
